@@ -8,8 +8,8 @@ def malo_talo_meter(is_male,is_tall):
         print("You are not a male but are tall")
     else:
         print("You are either not male or not tall or both")
-is_male =  input("say True if u are male otherwise u gay\n")
-is_tall =  input("say True if u are tall otherwise u lebo\n")
+is_male =  input("say True if u are male \n")
+is_tall =  input("say True if u are tall \n")
 print(is_tall.phrase[0].upper())
 print(is_male.phrase[0].upper())
 malo_talo_meter(is_male,is_tall)

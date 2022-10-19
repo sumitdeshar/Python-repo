@@ -11,5 +11,5 @@ elif op == "*":
 elif op == "/":
     print(num1 / num2)
 else:
-    print("mf u dont have that feature yet :")
+    print("You dont have that feature yet :")
 print("The End")

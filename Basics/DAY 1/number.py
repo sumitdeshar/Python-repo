@@ -15,7 +15,7 @@ print(str(num) + " is my fav number")
 num = 3 - 10
 print(num)
 print(abs(num))
-print(pow(2,4))
+print(pow(2,abs(num)))
 print(max(2,4))
 print(min(2,4))
 print(round(3.2))

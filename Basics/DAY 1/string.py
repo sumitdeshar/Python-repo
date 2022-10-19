@@ -1,6 +1,6 @@
 phrase = "\'Giraffe Academy\'"
-print(phrase + "\tis lol")
-print(phrase + "\nis lol")
+print(phrase + "\tis not animal academy")
+print(phrase + "\nis not animal academy")
 print(phrase.lower())
 print(phrase.upper())
 print(phrase.islower())

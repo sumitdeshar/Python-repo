@@ -1,3 +1,4 @@
+print("fill whatever comes to your mind immediately after reading the following sentences")
 print("Roses are {colour}")
 print("{Noun} are blue")
 print("I love {celebs}")

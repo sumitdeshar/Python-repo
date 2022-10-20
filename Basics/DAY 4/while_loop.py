@@ -16,9 +16,7 @@ while guess != secret_word and not(out_of_guesses):
 
     else:
         out_of_guesses = True
-if out_of_guesses == False:
-    print("you won")
+if out_of_guesses == True:
+    print("you ran out of guessing limit\n\tyou lose !")
 else:
-    print("guess limit is reached")
-    print("you lose")
-
+    print("\tyou won !")

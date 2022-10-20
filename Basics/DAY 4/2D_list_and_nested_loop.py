@@ -9,3 +9,6 @@ print(number_grid[0][0])
 #for row in number_grid:
 #    for colomn in row:
 #        print(colomn)
+for row in number_grid:
+    for colomn in range(len(row)):
+        print(number_grid[colomn])

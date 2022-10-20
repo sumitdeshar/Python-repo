@@ -6,4 +6,3 @@ def raise_to_power(base_num, pow_num):
     return result
     #print(result)
 print(raise_to_power(7, 3))
-#same code lekhda ne mildana tw bay

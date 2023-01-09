@@ -1,0 +1,86 @@
+Django
+Run server:
+python manage.py runserver // 4:11:20
+
+URL routing:
+1. Create new file 'urls.py'
+In myapp/urls.py
+2. import admin from django.contrib to access database and stuff
+    import path from django.urls to access multiple path
+    import views form . to acces views.py file
+3. create a list urlpatterns and add a path like
+        path('', views.index, name="index")        // add path to the app basically connect diffent file
+In myapp/views.py
+4. import import HttpResponse from django.http
+5. Define a function like
+    def index(request):
+            return HttpResponse('<h1>Welcome</h1>')    //display Welcome
+In myproject/urls.py
+6. import inculde from django.urls
+7. add path like:
+    path('', include('myapp.urls')) //to include myapp/urls.py to the project
+
+
+Adding template:
+1. Create a directory on the main directory 
+In myproject/setting.py
+2. add BASE_DIR, directory_name in templates section
+3. create a index.html in templates directory
+
+Sending Data To Template File:
+In index.html
+1.Create a static line
+In myapp/views.py
+2.Create a function 'index' //to change into a dyanmic  line
+3.  def index(request):
+    name='John'
+    return render(request,'index.html', {'name': name})
+5. Replace name = user.name // It will get name of the user through login
+6.-adding context = //dictionary
+    {
+        'name': 'Haemon',
+        'age': '21',
+        'nationality': 'Nepali',
+        'interest': 'valorant', 'minecraft','defenitely not studing'
+    }
+In index.html 
+4. Replace static name with dyanmic as {{name}}// name is a key here
+7. change html accordingly
+
+Building a word counter:
+In index.html
+1.create a form using textarea (name='text') and input
+    -attribute for form
+    4. add method 
+    5. set action as counter
+In myapp/urls.py
+2.add path('',views.counter,name='counter')
+In myapp/viwes.py
+3. create a function counter(request)
+    text = request.GET['text']
+    amount_of_words = len(text.split())
+    return render(request, 'counter.html', {'word_count': amount_of_words})
+In counter.html
+6. <h2>amount of words is {{word_count}}
+
+GET vs POST:
+In GET ---> passed value is public and can be seen on url 
+IN POST -->  passed value is private and cannot be seen on url 
+
+Default is GET and for POST method:
+-add this in the first line of code under POST section{% csrf_token %}
+-change GET into POST in myapp.views.counter 
+
+Static Files:
+1. Create a new folder
+In myproject/setting.py
+2. import os 
+3. STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+4. Create a css file and link to html in static dir 
+    -implement under href="{% static 'file_name.css' %}"
+    -load static as {% load static %}
+
+
+
+
+

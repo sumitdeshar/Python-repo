@@ -80,7 +80,114 @@ In myproject/setting.py
     -implement under href="{% static 'file_name.css' %}"
     -load static as {% load static %}
 
+Model in Django:
+It is a database and we transfer data through here to data base using CharField
+In myapp/model.py
+1. Create a class feature as
+    class Feature:
+    id: int
+    name: str 
+    details: str
+    is_true: bool 
+
+In myapp/views.py
+2. import Feature as
+    from .models import Feature
+3. create different feature 1(fast) 2(easy to use) 3(reliable)
+    return Feature
+4. implement it in html
+//but dont follow 3 and 4 
+5. create feature list and pass list in return
+In html
+    //applying loop in html
+    {% for feature in features %}
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="ri-stack-line"></i></div>
+            <h4 class="title"><a href="">{{feature.name}}</a></h4>
+            <p class="description">{{feature.details}}</p>
+            {% if feature.is_true == True %}
+              <p>This feature is true</p>
+            {% {% elif  feature.is_true == False %} %}
+              <p>This feature is false</p>
+            {% endif %}
+          </div>
+        </div>
+    {% endfor %}
+
+Django Admin Panel:
+In myapp/models.py 
+1.pass parameter models.Model in class
+//It convert the class into model or object
+    -delete id //the object auto gets the ID in Default
+    -name= models.CharField(max_length= 100) // to add data on databases
+    -details= models.CharField(max_length= 500)
+In myproject/setting.py
+2. add my on list INSTALLED_APPS
+In cmd
+3. python manage.py makemigrations// fo this every time you change something in model.py 
+4. python manage.py migrate
+5. python manage.py createsuperuser
+6. try logging into the admin page
+
+Manipulating database through admin webpage
+In myapp/admin.py
+1. from .models import Feature
+2. add admin.site.register(Feature)
+3. Go to page and hit refresh
+4. add some object/features
+5. to view the features add a return funtion in view.py/index function
+    -features = Feature.objects.all()
+6. add different features
+
+User Resgisteration: 
+1. Add a new path register
+2. def a register function and return register.html
+3. create a form in register.html
+4. dont forget to add csrf_token
+5. from django.contrib.auth.models import User, auth
+6. import redirect from django.shortcuts
+7. from django.contrib.authmodels import User, auth
+8. import feature from .models
+9. import messages from django.contrib
+9. collect username ,email password and password2 as:
+    username = request.POST["username"]
+    email = request.Post["email"]
+    password = request.Post["password"]
+    password2 = request.Post["password2"]
+10. if password==password2 then check username and email already exists if all is fine then create a user
+11. else redirect the user to sign up page
+12. add messages in register.html usign for loop 
+13. give red color to the message
+
+sample function:
+    def register(request):
+        if request.method == 'POST':
+            username = request.POST["username"]
+            email = request.Post["email"]
+            password = request.Post["password"]
+            password2 = request.Post["password2"]
+            
+            if password==password2:
+                if User.obects.filter(email=email).exists():
+                    messages.info(request, "Email Already Used")
+                    return redirect('register')
+                elif User.object.filter(username=username).exists():
+                    messages.info(request, "Username Already Used")
+                    return redirect('register')
+                else:
+                    user = User.objects.create_user(username=username, email=email, password=password)
+                    user.save();
+                    return redirect('login')
+            else:
+                messages.info(request, "Password did not match")
+                return redirect('register')
+        else:    
+            return render(request,'register.html')
 
 
 
 
+
+
+//5:38:26

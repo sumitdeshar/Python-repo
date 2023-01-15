@@ -1,4 +1,9 @@
 Django
+Creating Project:
+django-admin startproject myproject
+Creating myapp:
+python manage.py startapp myapp
+
 Run server:
 python manage.py runserver // 4:11:20
 
@@ -185,9 +190,48 @@ sample function:
         else:    
             return render(request,'register.html')
 
+User Login:
+1. Add path name login
+2. create a login funtion returning login.html
+3. create login.html
+    -add a form with attributes action="login" method="POST"
+    -add input tags for username and password
+4. inside login funtion
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
+        user = auth.authenticate(username= usernmae, password= password)
 
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, "Credentials Invalid")
+            return redirect ('login')
+    else:
+        return render(request,'login.html')
 
+5. add a error message in html
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %} 
 
+6. add a style
+<style>
+    h3{
+        color: red;
+    }
+</style>
 
-//5:38:26
+7. index.html line 90
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% endif %}
+
+8.for Logout
+{% if user.is_authenticated %}
+    <li><a class="getstarted scrollto" href="#about">Logout</a></li>
+{% else %}
+    <li><a class="getstarted scrollto" href="#about">Log In or SignUp</a></li>
+{% endif %}

@@ -12,7 +12,7 @@ URL routing:
 In myapp/urls.py
 2. import admin from django.contrib to access database and stuff
     import path from django.urls to access multiple path
-    import views form . to acces views.py file
+    import views from . to access views.py file
 3. create a list urlpatterns and add a path like
         path('', views.index, name="index")        // add path to the app basically connect diffent file
 In myapp/views.py
@@ -21,7 +21,7 @@ In myapp/views.py
     def index(request):
             return HttpResponse('<h1>Welcome</h1>')    //display Welcome
 In myproject/urls.py
-6. import inculde from django.urls
+6. import include from django.urls
 7. add path like:
     path('', include('myapp.urls')) //to include myapp/urls.py to the project
 

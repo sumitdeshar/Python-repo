@@ -124,7 +124,7 @@ Django Admin Panel:
 In myapp/models.py 
 1.pass parameter models.Model in class
 //It convert the class into model or object
-    -delete id //the object auto gets the ID in Default
+    -delete id //the object auto gets the ID in Default 
     -name= models.CharField(max_length= 100) // to add data on databases
     -details= models.CharField(max_length= 500)
 In myproject/setting.py
@@ -235,3 +235,26 @@ User Login:
 {% else %}
     <li><a class="getstarted scrollto" href="#about">Log In or SignUp</a></li>
 {% endif %}
+
+Dynamic url routing:
+1.add path as
+    path('post/<str:pk>',views.post, name='post')
+In views.py
+2.define a funtion post(request, pk):
+return render(request, 'post.html',{'pk': pk})
+for multiple post links
+    call value for posts
+    in post function
+3.create a poster.html and add a dynamic text.
+    -create a for loop
+    -add a link tag 
+    - endfor
+
+Postgresql:
+connecting another database in django
+-download postgresql for web
+//skipped watch video if needed
+
+Building a blog: (only important step are noted here)
+
+

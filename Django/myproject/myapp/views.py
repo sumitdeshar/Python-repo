@@ -24,15 +24,15 @@ def counter(request):
 def register(request):
     if request.method == 'POST':
         username = request.POST["username"]
-        email = request.Post["email"]
-        password = request.Post["password"]
-        password2 = request.Post["password2"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+        password2 = request.POST["password2"]
         
         if password==password2:
-            if User.obects.filter(email=email).exists():
+            if User.objects.filter(email=email).exists():
                 messages.info(request, "Email Already Used")
                 return redirect('register')
-            elif User.object.filter(username=username).exists():
+            elif User.objects.filter(username=username).exists():
                 messages.info(request, "Username Already Used")
                 return redirect('register')
             else:
@@ -61,3 +61,14 @@ def login(request):
             return redirect ('login')
     else:
         return render(request,'login.html')
+    
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+def post(request, pk):
+    return render(request,'post.html',{'pk': pk })
+
+def poster(request):
+    posts = [1,2,3,'tim','tom','jhon']
+    return render(request, 'poster.html', {'posts': posts})

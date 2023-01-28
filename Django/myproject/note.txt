@@ -68,7 +68,7 @@ In myapp/viwes.py
 In counter.html
 6. <h2>amount of words is {{word_count}}
 
-GET vs POST:
+GET vs POST: 
 In GET ---> passed value is public and can be seen on url 
 IN POST -->  passed value is private and cannot be seen on url 
 
@@ -247,7 +247,7 @@ for multiple post links
     in post function
 3.create a poster.html and add a dynamic text.
     -create a for loop
-    -add a link tag 
+    -add a link tag
     - endfor
 
 Postgresql:
@@ -255,6 +255,40 @@ connecting another database in django
 -download postgresql for web
 //skipped watch video if needed
 
-Building a blog: (only important step are noted here)
+
+
+Building a blog:
+1. create a project blog
+2. create a app posts
+3. continue wiht url mapping
+4. add path for index
+5. create a views funtion
+6. setup a template as
+    BASE_DIR/'templates'
+7. add app in INSTALLED_APPS
+8. add a path on project urls//import include
+9. create a model Post(model.models):
+    title = models.CharField(max_length=100)
+    body = models.CharField(max_length=1000)
+    created_at = models>DateTimeField(default=datetime.now, blank=True) // import datetime from datetime
+10. migrate above model
+11. login to admin Panel
+In admin.py
+12. import Post form .models
+13. admin.site.register(Post)
+In views.py
+14. get posts = Post.objects.all() and pass into html as posts
+15. create a loop in html file and use reversed for LIOT(Last In On Top)
+Change the post to shown few word than menu
+16. use truncatewords:20
+17. add a link tag with href for redirecting
+18. add text-decoration: none and color: black
+for redirecting post
+19. create a new path for post
+20. define a function post
+21. create posts.html
+22. create a dynamic url routing for post 
+
+
 
 

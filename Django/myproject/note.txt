@@ -1,4 +1,6 @@
 Django
+Installing django:
+pip install django
 Creating Project:
 django-admin startproject myproject
 Creating myapp:

@@ -291,6 +291,30 @@ for redirecting post
 21. create posts.html
 22. create a dynamic url routing for post 
 
+Errors:
+It is impossible to add a non-nullable field 'room' to message without specifying a default.
+This is because the database needs something to populate existing rows.
+
+1. Adding 'null = True' to the new field.
+Code:
 
 
+p_4 = models.CharField(max_length=300, null=True) #new field
+
+
+Now we can migrate the models, and the issue will be solved.
+
+2. Adding 'default = " " ' to new filed.
+Code:
+
+
+p_6 = models.CharField(max_length=300, default='test') # default value
+
+If these two ways does not working, can try :
+
+3. Deleting and returning the model --highly risky-- db sab udcha
+Before talking about this way, I'd to warn you that this way will delete your model data.
+so you need to delete your model class in models.py then migrate your app models, after migrations return back the model and migrate the model
+
+Delete Model => Makemigrations Models => Migrate Models => Return Back the models => Makemigrations Models => Migrate Models
 

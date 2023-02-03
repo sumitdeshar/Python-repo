@@ -66,8 +66,8 @@ body {
 </div> -->
 
 </div>
-
-{% comment %} <script>
+/*update message in real-time by updating every second without reloading*//*prevent the page reloading on every send message*/
+<script>
 $(document).ready(function(){
 
 setInterval(function(){
@@ -89,7 +89,7 @@ setInterval(function(){
     });
 },1000);
 })
-</script> {% endcomment %}
+</script>
 
 
 <div class="container">
@@ -137,11 +137,11 @@ setInterval(function(){
 
 
 </body>
-
-{% comment %} <script type="text/javascript">
+<!--prevent the page reloading on every send message -->
+<script type="text/javascript">
   $(document).on('submit','#post-form',function(e){
     e.preventDefault();
-
+/*post value to send function*/
     $.ajax({
       type:'POST',
       url:'/send',
@@ -150,13 +150,13 @@ setInterval(function(){
           room_id:$('#room_id').val(),
           message:$('#message').val(),
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
-      },
+      },/*removing input after every input*/
       success: function(data){
          //alert(data)
       }
     });
     document.getElementById('message').value = ''
   });
-</script> {% endcomment %}
+</script>
 
 </html>

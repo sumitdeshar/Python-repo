@@ -295,6 +295,8 @@ Errors:
 It is impossible to add a non-nullable field 'room' to message without specifying a default.
 This is because the database needs something to populate existing rows.
 
+0. Choose option 2 and pass some values 
+
 1. Adding 'null = True' to the new field.
 Code:
 

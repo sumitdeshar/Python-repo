@@ -320,3 +320,47 @@ so you need to delete your model class in models.py then migrate your app models
 
 Delete Model => Makemigrations Models => Migrate Models => Return Back the models => Makemigrations Models => Migrate Models
 
+Models:
+-(advance database notes)
+
+    class Tag (models.Model):
+        name= models.CharField(max_length= 100)
+        def __str__(self):
+            return self.name
+
+    class Product(models.Model):
+        name= models.CharField(max_length= 100)
+        context = models.CharField(max_length= 500)
+        date_created = models.DateTimeField(auto_now_add=True, null=True)
+        def __str__(self):
+            return self.name
+
+    class Order(models.Model):
+    Status = (
+        ('Pending','Pending'),
+        ('Out for delivery','Out for delivery'),
+        ('Delivered','Delivered'),
+        )
+
+        name= models.CharField(max_length= 100)
+        context = models.CharField(max_length= 500)
+        status = models.CharField(max_length=200, null=True, choices=Status)
+        tags = models.ManyToManyField(Tag)
+        def __str__(self):
+            return self.name
+
+Model query:
+documentation for query: docs.djangoproject.com/en/2.2/ref/models/querysets/
+
+customer=Customer.objects.get(id=2)
+customer.order_set.all()
+-->filter all order from customer without using filter
+
+product = Product.object.filter(category='Out Door')
+products = Products.objects.all().order_by('id')//here arrangemnet of data by id
+products = Products.objects.all().order_by('-id')//here arrangemnet of data by -id or reversed
+
+product1 = Product.objects.filter(tags__name="Sports") // __ because of many to many
+--> filter all the product with tag name Sports
+// we use tag instead of Tag because object for that class TAG is stored in tag
+ 

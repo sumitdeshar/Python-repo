@@ -7,6 +7,13 @@ from django.contrib import messages
 # Create your views here.
 #for feature
 def index(request):
+    context = {}
+    x_forw_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forw_for is not None:
+        ip = x_forw_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    print('IP ADDRESS OF USER IS:',ip)
     features = Features.objects.all()
     return render(request, 'index.html', {'features': features})
 

@@ -1,0 +1,19 @@
+<h1>Attendance</h1>
+{% if attendance %}
+  <p>Check in time: {{ attendance.check_in }}</p>
+  {% if attendance.check_out %}
+    <p>Check out time: {{ attendance.check_out }}</p>
+  {% else %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Check out</button>
+    </form>
+  {% endif %}
+{% else %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Check in</button>
+  </form>
+{% endif %}

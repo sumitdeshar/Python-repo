@@ -1,21 +1,36 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse #to return direct html code
 from django.contrib.auth.models import User, auth
-from .models import Features
+from .models import *
 from django.contrib import messages
 
 # Create your views here.
 #for feature
+# def index(request):
+#     context = {}
+#     x_forw_for = request.META.get('HTTP_X_FORWARDED_FOR')
+#     if x_forw_for is not None:
+#         ip = x_forw_for.split(',')[0]
+#     else:
+#         ip = request.META.get('REMOTE_ADDR')
+#     print('IP ADDRESS OF USER IS:', ip)
+#     features = Features.objects.all()
+#     return render(request, 'index.html', {'features': features})
+
 def index(request):
-    context = {}
     x_forw_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forw_for is not None:
-        ip = x_forw_for.split(',')[0]
+        user_ip = x_forw_for.split(',')[0]
     else:
-        ip = request.META.get('REMOTE_ADDR')
-    print('IP ADDRESS OF USER IS:',ip)
-    features = Features.objects.all()
-    return render(request, 'index.html', {'features': features})
+        user_ip = request.META.get('REMOTE_ADDR')
+    allowed_ips = AllowedIP.objects.all()
+    
+    if any(ip.ip == user_ip for ip in allowed_ips):
+        features = Features.objects.all()
+        return render(request, 'index.html', {'features': features})
+    else:
+        # User's IP address is not present in the database
+        return HttpResponse('Access Denied')
 
 #wordcounter
 def word_counter(request):
@@ -23,7 +38,7 @@ def word_counter(request):
 
 #wordcounter
 def counter(request):
-    text = request.POST["text"]
+    text = request.POST.get("text")
     amount_of_words = len(text.split())
     return render(request, 'counter.html', {"word_count": amount_of_words})
 

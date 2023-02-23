@@ -4,3 +4,12 @@ from django.db import models
 class Features(models.Model):
     name= models.CharField(max_length= 100)
     details = models.CharField(max_length= 500)
+    def __str__(self):
+        return self.name
+    
+class AllowedIP(models.Model):
+    ip = models.GenericIPAddressField(null=True)
+    # def __str__(self):
+    #     return self.ip
+    
+    

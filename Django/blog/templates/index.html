@@ -53,13 +53,13 @@ body {
 
 <div class="row">
   <div class="leftcolumn">
-    {% for post in posts reversed %}
+    {% for notice in notices reversed %}
     <!-- reversed is used to make lastest post ot top by reversing the list -->
     <div class="card">
       <a style="text-decoration: none; color: black;" href="/post/{{post.id}}">
-        <h2>{{post.title}}</h2>
-        <h5>{{post.created_at}}</h5>
-        <p>{{post.body|truncatewords:20}}</p>
+        <h2>{{notice.title}}</h2>
+        <h5>{{notice.created_at}}</h5>
+        <p>{{notice.body|truncatewords:20}}</p>
       </a>
     </div>
     {% endfor %}

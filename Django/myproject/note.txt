@@ -363,4 +363,35 @@ products = Products.objects.all().order_by('-id')//here arrangemnet of data by -
 product1 = Product.objects.filter(tags__name="Sports") // __ because of many to many
 --> filter all the product with tag name Sports
 // we use tag instead of Tag because object for that class TAG is stored in tag
- 
+
+Model Forms:
+In template/.html
+1.Create a html form as:
+    <form action="" method="POST">
+        {%csrf_token%}
+        {{form}}
+        <input type="submit" name="submit">
+    </form>
+In mainapp/forms.py
+2. Create a model for the desired object
+3. Create a form as
+    from django import forms
+    from .models import *
+
+    class EventForm(forms.ModelForm):
+        class Meta:
+            model = Order //model name for the one you want to create a form
+            fields = '__all__' //what column name you want in forms
+In urls.py
+4. Create a urls 
+In views.py
+5. create a funciton for inputing and processing forms as:
+    def createOrder(request):
+        form =OrderForm()
+        if request.method == 'POST':
+            form = OrderForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+    context = {'form': form}
+    return render{request, '.html', context}

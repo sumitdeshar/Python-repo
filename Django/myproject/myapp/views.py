@@ -5,7 +5,7 @@ from .models import *
 from django.contrib import messages
 
 # Create your views here.
-#for feature
+#for admin to get his ip if required 
 # def index(request):
 #     context = {}
 #     x_forw_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -24,8 +24,8 @@ def index(request):
     else:
         user_ip = request.META.get('REMOTE_ADDR')
     allowed_ips = AllowedIP.objects.all()
-    
-    if any(ip.ip == user_ip for ip in allowed_ips):
+    print('IP ADDRESS OF USER IS:', user_ip)
+    if any(ip.ip_address == user_ip for ip in allowed_ips):
         features = Features.objects.all()
         return render(request, 'index.html', {'features': features})
     else:
@@ -59,7 +59,7 @@ def register(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
-                user.save();
+                user.save()
                 return redirect('login')
         else:
             messages.info(request, "Password did not match")

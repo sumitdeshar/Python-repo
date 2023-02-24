@@ -8,7 +8,7 @@ class Features(models.Model):
         return self.name
     
 class AllowedIP(models.Model):
-    ip = models.GenericIPAddressField(null=True)
+    ip_address = models.GenericIPAddressField(null=True)
     # def __str__(self):
     #     return self.ip
     

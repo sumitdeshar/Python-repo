@@ -6,6 +6,6 @@ myChef.makes_chicken()
 myChef.makes_special_dish()
 
 mychinesechef = ChineseChef()
-mychinesechef.makes_salad
+mychinesechef.makes_salad()
 mychinesechef.makes_special_dish()
 mychinesechef.makes_fried_rice()

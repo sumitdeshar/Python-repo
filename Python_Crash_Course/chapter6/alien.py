@@ -31,24 +31,44 @@
 # def alien():
 # alien()
 
-alien_0 = {'color': 'green', 'points': 5}
-# alien_0 = {'x_position': 0, 'y_position': 25, 'speed': 
-# 'medium'} 
-alien_0['x_position'] = 0
-alien_0['y_position'] = 25
-alien_0['speed'] = 'slow'
+# alien_0 = {'color': 'green', 'points': 5}
+# # alien_0 = {'x_position': 0, 'y_position': 25, 'speed': 
+# # 'medium'} 
+# alien_0['x_position'] = 0
+# alien_0['y_position'] = 25
+# alien_0['speed'] = 'slow'
 
-print(f'{alien_0}')
+# print(f'{alien_0}')
 
-if alien_0['speed'].lower() == 'slow':
-    x_increment = 1
-elif alien_0['speed'].lower() == 'medium':
-    x_increment = 2
-else:
-    x_increment = 3
+# if alien_0['speed'].lower() == 'slow':
+#     x_increment = 1
+# elif alien_0['speed'].lower() == 'medium':
+#     x_increment = 2
+# else:
+#     x_increment = 3
 
-alien_0['x_position'] = alien_0['x_position'] + x_increment
+# alien_0['x_position'] = alien_0['x_position'] + x_increment
 
 
-print(f'{alien_0["x_position"]}')
+# print(f'{alien_0["x_position"]}')
 
+# next part
+aliens= []
+
+for alien_number in range(30):
+    new_alien = {'color': 'green','points': 5,'speed':'slow'}
+    aliens.append(new_alien)
+    
+# for i,alien in enumerate(aliens[:-5]):
+#     print(i)
+#     print(alien)
+# print(aliens)
+    
+for alien in aliens[:3]: 
+    if alien['color'] == 'green': 
+        alien['color'] = 'yellow' 
+        alien['speed'] = 'medium' 
+        alien['points'] = 10 
+
+for alien in aliens[:5]:
+    print(alien)

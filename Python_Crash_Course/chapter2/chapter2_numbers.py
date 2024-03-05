@@ -1,6 +1,8 @@
 print(3.0 ** 2) #square
 
 universe_age = 14_000_000_000
+
+print(f'{universe_age:_}')
 #When you print a number that was defined using underscores, Python prints only the digits
 print(universe_age)
 

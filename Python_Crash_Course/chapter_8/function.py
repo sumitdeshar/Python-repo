@@ -49,25 +49,43 @@ result = concatenate_strings('Hello', 'World', 'Python')
 print(result)  # Output: Hello World Python
 
 
+def make_pizza(size, *toppings): 
+# """Summarize the pizza we are about to make.""" 
+    print(f"\nMaking a {size}-inch pizza with the following toppings:") 
+    for topping in toppings:
+        print(f"- {topping}") 
+        
+make_pizza(16, 'pepperoni') 
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
-# Arbitrary Keyword Arguments (**kwargs):
-# Building a Profile:
-# A function to build a user profile with arbitrary user information.
+# output
+# Making a 16-inch pizza with the following toppings: - pepperoni 
+# Making a 12-inch pizza with the following toppings: - mushrooms - green peppers - extra cheese
 
-def build_profile(first, last, **kwargs):
-    kwargs['first_name'] = first
-    kwargs['last_name'] = last
-    return kwargs
+        
 
-user_profile = build_profile('Alice', 'Wonder', age=25, city='Wonderland', hobby='Reading')
-print(user_profile)
 
-# Styling HTML Elements:
-# A function that generates an HTML element with arbitrary attributes.
 
-def create_html_element(tag, content, **attributes):
-    attribute_str = ' '.join([f'{key}="{value}"' for key, value in attributes.items()])
-    return f'<{tag} {attribute_str}>{content}</{tag}>'
 
-html_button = create_html_element('button', 'Click me', class_='btn', id='btn1')
-print(html_button)
+
+# # Arbitrary Keyword Arguments (**kwargs):
+# # Building a Profile:
+# # A function to build a user profile with arbitrary user information.
+
+# def build_profile(first, last, **kwargs):
+#     kwargs['first_name'] = first
+#     kwargs['last_name'] = last
+#     return kwargs
+
+# user_profile = build_profile('Alice', 'Wonder', age=25, city='Wonderland', hobby='Reading')
+# print(user_profile)
+
+# # Styling HTML Elements:
+# # A function that generates an HTML element with arbitrary attributes.
+
+# def create_html_element(tag, content, **attributes):
+#     attribute_str = ' '.join([f'{key}="{value}"' for key, value in attributes.items()])
+#     return f'<{tag} {attribute_str}>{content}</{tag}>'
+
+# html_button = create_html_element('button', 'Click me', class_='btn', id='btn1')
+# print(html_button)

@@ -35,8 +35,11 @@
 #         """Add the given amount to the odometer reading.""" 
 #         self.odometer_reading += miles
 #     def fill_gas_tank(self): 
-#         print("The gas tank is fille
-from chapter_9 import Car
+#         print("The gas tank is filled")
+
+import sys
+sys.path.append('F:\LearnToCode\Python-repo\Python_Crash_Course\chapter_9')
+from car import Car
 
 class ElectricCar(Car): 
     """Represent aspects of a car, specific to electric 

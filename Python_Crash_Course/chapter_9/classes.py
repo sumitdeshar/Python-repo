@@ -52,25 +52,25 @@
 #  Create several instances representing different users, and call both methods for each
 #  user.
 
-# class User:
+class User:
     
-#     def __init__(self,first_name,last_name,username,password,bio):
-#         self.first_name = first_name
-#         self.last_name = last_name
-#         self.username = username
-#         self.password = password
-#         self.bio = bio
+    def __init__(self,first_name,last_name,username,password,bio):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.password = password
+        self.bio = bio
     
-#     def show_info(self):
-#         print(f"{self.first_name} {self.last_name} \n   your  username is: {self.username}\n\tpassword is: {self.password}")
+    def show_info(self):
+        print(f"{self.first_name} {self.last_name} \n   your  username is: {self.username}\n\tpassword is: {self.password}")
         
-#     def  greet_user(self):
-#         print(f"hello {self.first_name} {self.last_name}")
+    def  greet_user(self):
+        print(f"hello {self.first_name} {self.last_name}")
         
-# ram = User('ram','pandey','ramayan','lanka@ka$dhanka', 'Sita is my love.')
-# ram.show_info()
-# print(ram.bio)
-# ram.greet_user()
+ram = User('ram','pandey','ramayan','lanka@ka$dhanka', 'Sita is my love.')
+ram.show_info()
+print(ram.bio)
+ram.greet_user()
 
 # output
 # ram pandey 
@@ -88,29 +88,29 @@
 #  then call reset_login_attempts(). Print login_attempts again to make sure it was reset
 #  to 0.
 
-class User:
-    def __init__(self,login_attempts):
-        self.login_attempts = login_attempts
+# class User:
+#     def __init__(self,login_attempts):
+#         self.login_attempts = login_attempts
         
-    def increment_login_attempts(self):
-        self.login_attempts += 1
-        return self.login_attempts
+#     def increment_login_attempts(self):
+#         self.login_attempts += 1
+#         return self.login_attempts
     
-    def reset_login_attempts(self): 
-        self.login_attempts = 0
-        return self.login_attempts
+#     def reset_login_attempts(self): 
+#         self.login_attempts = 0
+#         return self.login_attempts
     
     
-myuser = User(1)
-myuser.increment_login_attempts()
-myuser.increment_login_attempts()
-myuser.increment_login_attempts()
-myuser.increment_login_attempts()
-myuser.increment_login_attempts()
-myuser.increment_login_attempts()
-print(f'login attempts are: {myuser.login_attempts}')
-myuser.reset_login_attempts()
-print(f'login attempts are: {myuser.login_attempts}')
+# myuser = User(1)
+# myuser.increment_login_attempts()
+# myuser.increment_login_attempts()
+# myuser.increment_login_attempts()
+# myuser.increment_login_attempts()
+# myuser.increment_login_attempts()
+# myuser.increment_login_attempts()
+# print(f'login attempts are: {myuser.login_attempts}')
+# myuser.reset_login_attempts()
+# print(f'login attempts are: {myuser.login_attempts}')
 
 # login attempts are: 7
 # login attempts are: 0

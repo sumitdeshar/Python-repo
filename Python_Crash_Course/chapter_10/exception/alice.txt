@@ -1,0 +1,8 @@
+ I moved the file alice.txt to the correct directory, so the try block will
+ work this time. We take the string contents, which now contains the entire
+ text of Alice in Wonderland as one long string, and use split() to produce
+ a list of all the words in the book ❶. Using len() on this list ❷ gives us a
+ good approximation of the number of words in the original text. Lastly, we
+ print a statement that reports how many words were found in the file. This
+ code is placed in the else block because it only works if the code in the try
+ block was executed successfully

@@ -1,23 +1,32 @@
-# AssertionError
+#  Red (!)
+# Blue (?)
+# Green (*)
+# Yellow (^)
+# Pink (&)
+# Purple (~)
+# Mustard (todo)
+# Grey (//)
+
+#  !AssertionError
 #  When an assert statement fails, the AssertionError is raised.
 
-#  AttributeError
+#  ^AttributeError
 #  When an assignment fails, the AttributeError is raised
 
-#  EOFError
+#  *EOFError
 #  When the last word of the file is reached and the program attempts to 
-# read any further, the EOFError is raised.
+#  read any further, the EOFError is raised.
 
-#  FloatingPointError
+#  ?FloatingPointError
 #  This exception is raised when floating point operations fail.
 
-#  ImportError
+#  &ImportError
 #  If the import statement written in the code cannot load the said module, 
 # this exception is raised. This is same as the ModuleNotFoundError in 
 # the later versions of Python.
 
-#  IndexError
-#  When the sequence is out of range, this exception is raised.
+#  ~IndexError
+#  todo When the sequence is out of range, this exception is raised.
 
 #  KeyError
 #  If in a dictionary the key is not found, then this exception is raised.
